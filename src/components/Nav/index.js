@@ -1,20 +1,41 @@
 import React from 'react';
 
-function Nav() {
+
+function Nav(props) {
+    
+    const {
+        tabs = [],
+        setCurrentTab,
+        currentTab,
+    } = props;
+
+    console.log(tabs)
     return (
         <header>
             <h2>
-                <a></a>
-                <span></span>
+                <span>Adrian Ulibarri</span>
             </h2>
             <nav>
                 <ul>
                     <li>
-                    <a>Biography</a>
+                    <a href="/">Biography</a>
                     </li>
-                    <li>
-                        
+                    <li className={`nav-li`}>
+                        <span>Contact</span>
                     </li>
+                    {tabs.map((tab) => (
+                        <li
+                            className={`nav-tab ${
+                                currentTab.name === tab.name && "nav-item"
+                            }`}
+                            key={tab.name}
+                            >
+                                <span 
+                                     onClick={() => {setCurrentTab(tab)}}>
+                                    {tab.name}
+                                </span>
+                        </li>
+                    ))}
                 </ul>
             </nav>
         </header>

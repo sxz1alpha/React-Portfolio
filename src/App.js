@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Bio from './components/Bio';
+import Nav from './components/Nav';
 
 
 function App() {
   
-  const [categories] = useState([
+  const [tabs] = useState([
     {
       name: 'projects',
       description: 'Projects that ive worked on and developed.'
@@ -20,11 +21,19 @@ function App() {
     {
       name: 'bio',
       description: 'A brief look at Adrian.'
-    }
-  ])
+    },
+  ]);
+
+  const [currentTab, setCurrentTab] = useState(tabs[0]);
   
   return (
     <div>
+      <Nav
+        tabs={tabs}
+        setCurrentTab={setCurrentTab}
+        currentTab={currentTab}
+      >
+      </Nav>
       <main>
         <Bio></Bio>
       </main>
