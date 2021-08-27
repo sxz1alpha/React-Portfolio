@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 
 function Nav(props) {
@@ -9,24 +9,28 @@ function Nav(props) {
         currentTab,
     } = props;
 
+    useEffect(() => {
+        document.title = currentTab.name
+    }, [currentTab]);
+
     console.log(tabs)
     return (
-        <header>
+        <header className="flex-row">
             <h2>
                 <span>Adrian Ulibarri</span>
             </h2>
             <nav>
-                <ul>
+                <ul className="flex-row fx-1">
                     <li>
-                    <a href="/">Biography</a>
+                    <a href="#bio">Biography</a>
                     </li>
-                    <li className={`nav-li`}>
+                    <li className={`nav-li fx-1`}>
                         <span>Contact</span>
                     </li>
                     {tabs.map((tab) => (
                         <li
-                            className={`nav-tab ${
-                                currentTab.name === tab.name && "nav-item"
+                            className={`fx-1 ${
+                                currentTab.name === tab.name && "active"
                             }`}
                             key={tab.name}
                             >

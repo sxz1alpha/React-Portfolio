@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Bio from './components/Bio';
+import Gallery from './components/Gallery';
 import Nav from './components/Nav';
 
 
@@ -18,10 +19,6 @@ function App() {
       name: 'contact',
       description: 'A way to contact me.'
     },
-    {
-      name: 'bio',
-      description: 'A brief look at Adrian.'
-    },
   ]);
 
   const [currentTab, setCurrentTab] = useState(tabs[0]);
@@ -36,6 +33,7 @@ function App() {
       </Nav>
       <main>
         <Bio></Bio>
+        <Gallery currentTab={currentTab}></Gallery>
       </main>
     </div>
   );
