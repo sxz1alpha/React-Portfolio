@@ -43,7 +43,7 @@ const WorkList = ({ tab }) => {
             <div className="flex-row">
                 {currentProject.map((photo, i) => (
                 <img 
-                src={require(`../../assets/${tab}/${i}.png`).default} 
+                src={require(`../../assets/projects/${i}.png`).default} 
                 alt={photo.description} 
                 className="project-image fx-1" 
                 key={photo.name}></img>
